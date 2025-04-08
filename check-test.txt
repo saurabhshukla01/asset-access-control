@@ -64,4 +64,83 @@ curl -u admin:admin http://127.0.0.1:8000/api/assets/ | python -m json.tool
 
 ---
 
-Let me know if you want to save this as a `.bat` file for quick reuse or test it with `httpie` for prettier output.
+----------------------------------------------------------------------------------------
+
+Please check with  this file >>
+
+
+admin     Saurabh@123    admin@example.com  Staff status=true   superadmin=true   active=true
+saurabh   123456         saurabh@gmail.com
+member    Saurabh@123    member@example.com
+
+
+-------------------------------------
+
+after add middleware then access api for cmd >>
+
+Now am checking member >>
+
+curl -H "x-user: member" http://127.0.0.1:8000/api/assets/
+
+Now am checking admin >>
+
+curl -H "x-user: admin" http://127.0.0.1:8000/api/assets/
+
+
+for formatted like :
+
+curl -H "x-user: admin" http://127.0.0.1:8000/api/assets/ | python -m json.tool
+
+-------------------------------------
+
+# Test with admin
+curl -u admin:admin http://127.0.0.1:8000/api/assets/
+
+# Test with member
+curl -u member:member http://127.0.0.1:8000/api/assets/
+
+# Test unauthenticated
+curl http://127.0.0.1:8000/api/assets/
+
+=======================================================
+
+commands :
+
+using these commands using in projects >>>
+
+C:\Users\saura\pythonProjects\asset-access-control\backend>doskey /history
+venv\Scripts\activate.bat
+.\venv\Scripts\activate.bat
+pip --version
+pip install virtualenv
+.\venv\Scripts\activate.bat
+venv\Scripts\activate.bat
+cls
+curl -u admin:Saurabh@123 http://127.0.0.1:8000/api/assets/
+curl -u member:Saurabh@123 http://127.0.0.1:8000/api/assets/
+curl -u admin:Saurabh@123 http://127.0.0.1:8000/api/assets/ | python -m json.tool
+history
+\history
+doskey /history
+
+# before implement access via curl >>
+
+curl -u admin:Saurabh@123 http://127.0.0.1:8000/api/assets/ | python -m json.tool
+curl -u admin:Saurabh@123 http://127.0.0.1:8000/api/assets/
+
+curl -u admin:admin http://127.0.0.1:8000/api/assets/
+curl -u member:member http://127.0.0.1:8000/api/assets/
+curl -u saurabh:123456 http://127.0.0.1:8000/api/assets/
+
+curl -u saurabh:123456 http://127.0.0.1:8000/api/assets/
+curl -u member:member http://127.0.0.1:8000/api/assets/
+curl -u member:Saurabh@123 http://127.0.0.1:8000/api/assets/
+
+# after implement access via curl >>
+
+curl -H "x-user: member" http://127.0.0.1:8000/api/assets/
+curl -H "x-user: admin" http://127.0.0.1:8000/api/assets/
+curl -H "x-user: admin" http://127.0.0.1:8000/api/assets/ | python -m json.tool
+doskey /history
+
+
