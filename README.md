@@ -213,3 +213,16 @@ add custom data in after login admin panel ..
 Now backend is ready!
 
 If you want to  test these apis then follow page like :  check-test.txt  file step by step
+
+
+####  Frontend Setup 
+
+bash
+
+```
+npx create-react-app frontend 
+cd frontend
+npm run start
+```
+
+## Visit react url :  http://localhost:3000/
