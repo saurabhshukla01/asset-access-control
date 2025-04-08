@@ -143,3 +143,4 @@ CORS_ALLOW_ALL_ORIGINS=True  # Optional: Allow All Origins (only for development
 CORS_ALLOW_HEADERS = list(default_headers) + [
     'x-user',
 ]
+

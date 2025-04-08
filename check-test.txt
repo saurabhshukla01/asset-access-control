@@ -1,0 +1,67 @@
+You can **test with `curl` directly from your command prompt (CMD)** by following these steps. Below are full working examples for each user type.
+
+---
+
+### ✅ STEP 1: Open your Command Prompt (CMD)
+
+- Press `Win + R`, type `cmd`, and hit Enter.
+
+---
+
+### ✅ STEP 2: Run Django server
+
+Make sure your Django server is already running in another terminal:
+
+```bash
+python manage.py runserver
+```
+
+---
+
+### ✅ STEP 3: Use these `curl` commands in CMD
+
+#### 👉 Admin Test (username: `admin`, password: `admin`)
+
+```cmd
+curl -u admin:admin http://127.0.0.1:8000/api/assets/
+```
+
+> ✅ This will show all assets including `name` and `secret_key`.
+
+---
+
+#### 👉 Member Test (username: `member`, password: `member`)
+
+```cmd
+curl -u member:member http://127.0.0.1:8000/api/assets/
+```
+
+> ✅ This will show only asset `name` values (no `secret_key`).
+
+---
+
+#### ❌ Unauthenticated Test (no login)
+
+```cmd
+curl http://127.0.0.1:8000/api/assets/
+```
+
+> ❌ This should return something like:
+
+```json
+{"detail": "Authentication credentials were not provided."}
+```
+
+---
+
+### ✅ TIP: Pretty-print the JSON output (optional)
+
+If you have Python installed, you can pipe the result into Python for nice formatting:
+
+```cmd
+curl -u admin:admin http://127.0.0.1:8000/api/assets/ | python -m json.tool
+```
+
+---
+
+Let me know if you want to save this as a `.bat` file for quick reuse or test it with `httpie` for prettier output.
